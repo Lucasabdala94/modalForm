@@ -4,6 +4,8 @@ export default function FormAdd() {
   const [values, setValues] = useState({
     trabajo: '',
     tension: '',
+    nota: '',
+    tipoTrabajo: '',
   });
 
   function handleSubmit(e) {
@@ -18,7 +20,6 @@ export default function FormAdd() {
       ...values,
       [name]: value,
     };
-
     // Sincroniza el estado de nuevo
     setValues(newValues);
   }
@@ -39,6 +40,28 @@ export default function FormAdd() {
         name="tension"
         type="text"
         value={values.tension}
+        onChange={handleChange}
+      />
+      <label htmlFor="tipoTrabajo">Tipo de Trabajo</label>
+      <select
+        id="tipoTrabajo"
+        name="tipoTrabajo"
+        type="text"
+        value={values.nota}
+        onChange={handleChange}
+        defaultValue="programado"
+      >
+        <option value="programado">Programado</option>
+        <option value="emergencia">Emergencia</option>
+        <option value="comunicaciones">Comunicaciones</option>
+      </select>
+      
+      <label htmlFor="nota">Nota</label>
+      <textarea
+        id="nota"
+        name="nota"
+        type="text"
+        value={values.nota}
         onChange={handleChange}
       />
       <button type="submit">Agregar</button>
